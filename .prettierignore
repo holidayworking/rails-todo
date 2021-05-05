@@ -1,0 +1,4 @@
+.husky/_/husky.sh
+db/schema.rb
+public/packs
+vendor/bundle

@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+      args:
+        ADDITIONAL_PACKAGES: bash-completion build-essential git less openssh-client vim
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: todo
+      DATABASE_PASSWORD: todo
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app:cached
+      - log:/app/log
+      - node-modules:/app/node_modules
+      - tmp:/app/tmp
+      - bundle:/usr/local/bundle
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.2
+    environment:
+      POSTGRES_USER: todo
+      POSTGRES_PASSWORD: todo
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  bundle:
+    driver: local
+  db:
+    driver: local
+  log:
+    driver: local
+  node-modules:
+    driver: local
+  tmp:
+    driver: local

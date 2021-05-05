@@ -1,0 +1,7 @@
+.devcontainer
+.git
+.github
+.vscode
+docker/app/Dockerfile
+docker-compose.yml
+node_modules

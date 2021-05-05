@@ -1,0 +1,30 @@
+{
+  "name": "rails-todo",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "extensions": [
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "kaiwood.endwise",
+    "mike-co.import-sorter",
+    "mrmlnc.vscode-duplicate",
+    "ms-azuretools.vscode-docker",
+    "octref.vetur",
+    "pmneo.tsimporter",
+    "rebornix.ruby",
+    "streetsidesoftware.code-spell-checker",
+    "stringham.move-ts",
+    "stylelint.vscode-stylelint",
+    "tyriar.sort-lines",
+    "visualstudioexptteam.vscodeintellicode"
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "vetur.validation.template": false
+  }
+}
