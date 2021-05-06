@@ -4,9 +4,9 @@
   "scripts": {
     "prepare": "husky install",
     "lint": "run-p --aggregate-output --continue-on-error --print-label lint:*",
-    "lint:eslint": "eslint --ext .ts,.vue app/javascript",
+    "lint:eslint": "eslint --ext .ts,.vue app/packs",
     "lint:prettier": "prettier --check .",
-    "lint:stylelint": "stylelint 'app/javascript/**/*.vue'",
+    "lint:stylelint": "stylelint 'app/packs/**/*.vue'",
     "fix": "run-s fix:*",
     "fix:eslint": "yarn run lint:eslint --fix",
     "fix:prettier": "yarn run lint:prettier --write",
@@ -16,16 +16,23 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "7.13.0",
-    "@rails/webpacker": "5.3.0",
+    "@rails/webpacker": "6.0.0-beta.7",
+    "css-loader": "5.2.4",
+    "css-minimizer-webpack-plugin": "2.0.0",
     "eslint": "7.25.0",
+    "fork-ts-checker-webpack-plugin": "6.2.6",
+    "html-loader": "^2.1.2",
     "html-webpack-harddisk-plugin": "2.0.0",
-    "html-webpack-plugin": "4.5.2",
+    "html-webpack-plugin": "5.3.1",
+    "mini-css-extract-plugin": "1.6.0",
+    "sass": "1.32.12",
+    "sass-loader": "11.0.1",
     "typescript": "4.2.4",
     "vue": "2.6.12",
     "vue-loader": "15.9.6",
     "vue-template-compiler": "2.6.12",
-    "webpack": "4.46.0",
-    "webpack-cli": "3.3.12"
+    "webpack": "5.36.2",
+    "webpack-cli": "4.7.0"
   },
   "devDependencies": {
     "@prettier/plugin-ruby": "1.5.5",
@@ -33,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "4.22.1",
     "@typescript-eslint/parser": "4.22.1",
     "@vue/test-utils": "1.2.0",
+    "@webpack-cli/serve": "1.4.0",
     "babel-core": "7.0.0-bridge.0",
     "eslint-config-airbnb-typescript": "12.3.1",
     "eslint-config-prettier": "8.3.0",
@@ -51,5 +59,71 @@
     "vue-jest": "3.0.7",
     "webpack-dev-server": "3.11.2",
     "yarn-deduplicate": "3.1.0"
+  },
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser",
+      "project": "./tsconfig.eslint.json",
+      "extraFileExtensions": [
+        ".vue"
+      ]
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "jest"
+    ],
+    "extends": [
+      "airbnb-typescript/base",
+      "plugin:jest/all",
+      "plugin:vue/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "jest/lowercase-name": [
+        "error",
+        {
+          "ignoreTopLevelDescribe": true
+        }
+      ]
+    }
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-sass-guidelines",
+      "stylelint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "vueIndentScriptAndStyle": true
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/app/packs"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "json",
+      "vue"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      ".*\\.(vue)$": "vue-jest"
+    }
   }
 }
