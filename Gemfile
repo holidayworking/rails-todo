@@ -8,7 +8,7 @@ gem 'bootsnap', require: false
 gem 'pg'
 gem 'puma'
 gem 'rails', '6.1.3.2'
-gem 'webpacker', '6.0.0.beta.7'
+gem 'webpacker', '6.0.0.pre.2'
 
 group :development do
   gem 'guard', require: false
