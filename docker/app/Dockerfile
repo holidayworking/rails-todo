@@ -1,6 +1,6 @@
 FROM node:14.17.0-buster AS node
 
-FROM ruby:3.0.1-buster AS builder
+FROM ruby:3.0.2-buster AS builder
 
 ARG BUNDLE_WITHOUT
 ARG RAILS_ENV
@@ -30,7 +30,7 @@ COPY . /app
 RUN bundle exec rails assets:precompile \
   && rm -rf node_modules
 
-FROM ruby:3.0.1-slim-buster AS runner
+FROM ruby:3.0.2-slim-buster AS runner
 
 ARG ADDITIONAL_PACKAGES
 ARG USER_UID
