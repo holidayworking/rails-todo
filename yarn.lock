@@ -7529,10 +7529,10 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prettier-plugin-sh@0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-sh/-/prettier-plugin-sh-0.6.1.tgz#094d1d190f0d8a53bfd522a68f17a95ca741047d"
-  integrity sha512-Weelg53FBb1Z5Q1/GpQIb4s//BdhmPAABjJfe6VTQ3m8upQjM36sVVboNOUVvYn3K+LMwzW4vkxhqLQ+vvfBKQ==
+prettier-plugin-sh@0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sh/-/prettier-plugin-sh-0.7.1.tgz#a2d38de10e55919ea945a6e72c4815b16d6614ad"
+  integrity sha512-2MWRdGOSz0yf/z2kTKF1AqxDuH9MZD8faoDAz5ySGphxssi9oyM3Ys+jp7AfqsCXvGUDbRA4EJOlKS0yZKAW6w==
   dependencies:
     mvdan-sh "^0.5.0"
 
