@@ -1,4 +1,4 @@
-FROM node:14.17.0-buster AS node
+FROM node:14.17.6-buster AS node
 
 FROM ruby:3.0.1-buster AS builder
 
